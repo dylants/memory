@@ -1,12 +1,15 @@
 /*jshint browser:true */
 /*global define:true */
 define([
-	"jquery"
+	"jquery",
+	"game-view"
 ],
-function($) {
+function($, GameView) {
 	"use-strict";
 
 	$(function() {
-		// do nothing...
+		// create and render the game
+		var gameView = new GameView();
+		gameView.render();
 	});
 });
