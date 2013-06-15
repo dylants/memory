@@ -11,7 +11,7 @@ function (Backbone, _, $, cardHtml) {
 
 	return Backbone.View.extend({
 
-		className: "card",
+		tagName: "td",
 
 		template: _.template(cardHtml),
 

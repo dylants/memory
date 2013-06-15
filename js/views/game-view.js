@@ -4,11 +4,11 @@ define([
 	"backbone",
 	"underscore",
 	"jquery",
-	"card-model",
-	"card-view",
+	"cards-model",
+	"cards-view",
 	"text!../../templates/game.html"
 ],
-function (Backbone, _, $, CardModel, CardView, gameHtml) {
+function (Backbone, _, $, CardsModel, CardsView, gameHtml) {
 	"use strict";
 
 	return Backbone.View.extend({
@@ -26,18 +26,16 @@ function (Backbone, _, $, CardModel, CardView, gameHtml) {
 			// render our game view outline
 			this.$el.html(this.template());
 
-			// add some cards
-			for (counter=0; counter<4; counter++) {
-				this.addCard();
-			}
+			// add the cards, hard coding to 4
+			this.addCards(4);
 
 			return this;
 		},
 
-		addCard: function() {
-			var cardModel = new CardModel();
-			var cardView = new CardView({model: cardModel});
-			$("#cards").append(cardView.render().el);
+		addCards: function(numCards) {
+			var cardsModel = new CardsModel({"numCards": 4});
+			var cardsView = new CardsView({model: cardsModel});
+			$("#cards").append(cardsView.render().el);
 		}
 	});
 });

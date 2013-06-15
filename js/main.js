@@ -4,6 +4,8 @@ require.config({
 		"underscore": "lib/underscore-min-1.4.4",
 		"backbone": "lib/backbone-min-1.0.0",
 		"text": "lib/text-2.0.6",
+		"cards-model": "models/cards-model",
+		"cards-view": "views/cards-view",
 		"card-model": "models/card-model",
 		"card-view": "views/card-view",
 		"game-view": "views/game-view",
