@@ -33,7 +33,7 @@ function (Backbone, _, $, CardsModel, CardsView, gameHtml) {
 		},
 
 		addCards: function(numCards) {
-			var cardsModel = new CardsModel({"numCards": 4});
+			var cardsModel = new CardsModel({"numCards": numCards});
 			var cardsView = new CardsView({model: cardsModel});
 			$("#cards").append(cardsView.render().el);
 		}

@@ -1,13 +1,65 @@
+@bg-color: rgb(238,238,238);
+@card-width: 10em;
+@card-height: 15em;
+
 body {
-	background-color: rgb(238,238,238);
+	background-color: @bg-color;
 	text-align: center;
 }
 
 #cards-table {
 	margin: 0 auto;
-	.card {
-		border: solid black;
-		width: 2em;
-		height: 3em;
+}
+
+// taken mostly from http://desandro.github.io/3dtransforms/docs/card-flip.html
+.container {
+	width: @card-width;
+	height: @card-height;
+	position: relative;
+	margin: 0 auto;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-o-perspective: 800px;
+	perspective: 800px;
+}
+.card {
+	width: @card-width;
+	height: @card-height;
+	position: absolute;
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	-o-transition: -o-transform 1s;
+	transition: transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	div {
+		display: block;
+		width: @card-width;
+		height: @card-height;
+		text-align: center;
+		font-weight: bold;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		backface-visibility: hidden;
 	}
+	.front {
+		background: red;
+	}
+	.back {
+		background: blue;
+		-webkit-transform: rotateY( 180deg );
+		-moz-transform: rotateY( 180deg );
+		-o-transform: rotateY( 180deg );
+		transform: rotateY( 180deg );
+	}
+}
+.card.flipped {
+	-webkit-transform: rotateY( 180deg );
+	-moz-transform: rotateY( 180deg );
+	-o-transform: rotateY( 180deg );
+	transform: rotateY( 180deg );
 }

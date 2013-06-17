@@ -15,12 +15,20 @@ function (Backbone, _, $, cardHtml) {
 
 		template: _.template(cardHtml),
 
+		events: {
+			"click .card": "flip"
+		},
+
 		initialize: function() {
 		},
 
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
+		},
+
+		flip: function() {
+			$(this.el).find(".card").toggleClass("flipped");
 		}
 	});
 });
